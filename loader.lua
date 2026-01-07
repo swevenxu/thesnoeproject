@@ -7,10 +7,12 @@ local REPO_BASE = "https://raw.githubusercontent.com/swevenxu/thesnoeproject/mai
 
 local scripts = {
     [125810438250765] = "games/deadly-delivery.obfuscated.lua",
+    [76558904092080] = "games/the-forge.obfuscated.lua",
 }
 
 local gameNames = {
     [125810438250765] = "Deadly Delivery",
+    [76558904092080] = "The Forge",
 }
 
 local function checkSavedKey()
