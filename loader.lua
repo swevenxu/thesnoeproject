@@ -7,13 +7,20 @@ local REPO_BASE = "https://raw.githubusercontent.com/swevenxu/thesnoeproject/mai
 
 local scripts = {
     [93044798454681] = "games/deadly-delivery.obfuscated.lua",
-    [76558904092080] = "games/the-forge.obfuscated.lua",
 }
 
 local gameNames = {
     [93044798454681] = "Deadly Delivery",
-    [76558904092080] = "The Forge",
 }
+
+local function isTheForge()
+    local w = workspace
+    return w:FindFirstChild("Forgotten Kingdom", true)
+        or w:FindFirstChild("Island3BossArena", true)
+        or w:FindFirstChild("Stonewake's Cross", true)
+        or w:FindFirstChild("Rocks")
+        or w:FindFirstChild("Island1CaveStart", true)
+end
 
 local function checkSavedKey()
     local success, content = pcall(function() return readfile(KEY_FILE) end)
@@ -46,11 +53,18 @@ local function validateKey(key)
 end
 
 local function loadGameScript()
-    local gameId = game.PlaceId
-    local scriptPath = scripts[gameId]
+    local placeId = game.PlaceId
+    local scriptPath = scripts[placeId]
+    local gameName = gameNames[placeId]
+    
+    -- Detect The Forge by workspace objects
+    if not scriptPath and isTheForge() then
+        scriptPath = "games/the-forge.obfuscated.lua"
+        gameName = "The Forge"
+    end
     
     if scriptPath then
-        print("[Snoe] Loading: " .. (gameNames[gameId] or "Unknown"))
+        print("[Snoe] Loading: " .. (gameName or "Unknown"))
         local success, err = pcall(function()
             loadstring(game:HttpGet(REPO_BASE .. scriptPath))()
         end)
