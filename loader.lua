@@ -81,7 +81,7 @@ if checkSavedKey() then loadGameScript(); return end
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/x2zu/OPEN-SOURCE-UI-ROBLOX/refs/heads/main/X2ZU%20UI%20ROBLOX%20OPEN%20SOURCE/DummyUi-leak-by-x2zu/fetching-main/Tools/Framework.luau"))()
 
 local Window = Library:Window({
-    Title = "Snoe Hub", Desc = "Key System", Theme = "Dark",
+    Title = "Snoe Hub", Desc = "Key System", Icon = "snowflake", Theme = "Dark",
     Config = { Keybind = Enum.KeyCode.RightControl, Size = UDim2.new(0, 400, 0, 250) },
     CloseUIButton = { Enabled = true, Text = "Close" }
 })
