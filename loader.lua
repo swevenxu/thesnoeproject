@@ -6,12 +6,12 @@ local KEY_DURATION = 24 * 60 * 60
 local REPO_BASE = "https://raw.githubusercontent.com/swevenxu/thesnoeproject/main/"
 
 local scripts = {
-    [125810438250765] = "games/deadly-delivery.obfuscated.lua",
+    [93044798454681] = "games/deadly-delivery.obfuscated.lua",
     [76558904092080] = "games/the-forge.obfuscated.lua",
 }
 
 local gameNames = {
-    [125810438250765] = "Deadly Delivery",
+    [93044798454681] = "Deadly Delivery",
     [76558904092080] = "The Forge",
 }
 
